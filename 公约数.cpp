@@ -1,22 +1,22 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+void p(int m, int n, int& gcd, int& lcm) {
+	int a = m,b = n;
+	while (b != 0) {
+		int temp = a % b;
+		a = b;
+		b = temp;
+	}
+	gcd = a;
+	lcm = (m * n) / gcd;
 }
 int main() {
-    int a, b;
-    cout << "请输入第一个正整数：";
-    cin >> a;
-    cout << "请输入第二个正整数：";
-    cin >> b;
-    int gcd_val = gcd(a, b);
-    int lcm_val = (a / gcd_val) * b;
-    cout << "最大公约数（GCD）：" << gcd_val << endl;
-    cout << "最小公倍数（LCM）：" << lcm_val << endl;
-    return 0;
+	int m, n;
+		cout << "输入两个自然数" << endl;
+		cin >> m >> n;
+		int gcd, lcm;
+		p(m, n, gcd, lcm);
+		cout << "最大公约数：" << gcd <<endl;
+		cout << "最小公倍数：" << lcm << endl;
+		return 0;
 }
